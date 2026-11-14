@@ -47,7 +47,7 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
   crew.forEach(a=>{
    if(a.wait>0)a.wait--;
    else if(Math.hypot(a.tx-a.x,a.ty-a.y)<15 || Math.random()<.0025)newTarget(a);
-   const k=a.speed*(slow?.45:1);
+   const k=a.speed*(slow ? .45 : 1);
    a.x+=(a.tx-a.x)*k;a.y+=(a.ty-a.y)*k;
    a.el.style.transform='translate3d('+a.x+'px,'+a.y+'px,0)';
    const selecting=Math.hypot(a.tx-a.x,a.ty-a.y)<22;
