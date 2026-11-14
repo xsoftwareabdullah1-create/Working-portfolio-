@@ -68,3 +68,30 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
  addEventListener('resize',()=>crew.forEach(newTarget));
  reset();tick();
 })();
+
+/* Functional custom website builder: live preview + downloadable standalone HTML */
+(()=>{
+ const $=id=>document.getElementById(id);
+ const frame=$('builderPreview');if(!frame)return;
+ let accent='#d7ff3f',layout='center';
+ const safe=value=>String(value||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+ const getData=()=>({name:safe($('builderName').value.trim()||'My Website'),headline:safe($('builderHeadline').value.trim()||'MAKE SOMETHING AMAZING'),description:safe($('builderDescription').value.trim()||'A website made your way.'),button:safe($('builderButton').value.trim()||'EXPLORE'),about:$('builderAbout').checked,work:$('builderWork').checked,contact:$('builderContact').checked,accent,layout});
+ function buildDocument(d){
+ const heroLayout=d.layout==='split'?'split':'center';
+ return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+d.name+'</title><style>'+
+ '*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#090a0b;color:#f6f6f1;font-family:Arial,sans-serif}a{color:inherit;text-decoration:none}.nav{height:70px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff20}.brand{font-weight:900;letter-spacing:2px}.links{display:flex;gap:22px;font-size:12px;color:#bbb}.hero{min-height:78vh;padding:9vw 8%;display:flex;flex-direction:column;justify-content:center;align-items:'+(heroLayout==='center'?'center':'flex-start')+';text-align:'+(heroLayout==='center'?'center':'left')+';background:radial-gradient(ellipse at 50% 0%,'+d.accent+'20,transparent 55%)}.tag{color:'+d.accent+';font-size:11px;letter-spacing:3px}.hero h1{font-size:clamp(42px,8vw,100px);line-height:.95;max-width:900px;margin:25px 0}.hero p{color:#aaa;line-height:1.8;max-width:540px}.cta{display:inline-block;margin-top:24px;padding:15px 22px;background:'+d.accent+';color:#080808;font-weight:800;font-size:12px;letter-spacing:1px}.section{padding:70px 8%;border-top:1px solid #ffffff18}.section h2{font-size:36px}.section p{max-width:650px;color:#aaa;line-height:1.8}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.card{border:1px solid #444;padding:22px;min-height:100px}.card b{color:'+d.accent+'}footer{padding:25px 8%;border-top:1px solid #333;color:#888;font-size:12px}@media(max-width:600px){.links{gap:10px;font-size:10px}.nav{padding:0 5%}.hero{min-height:70vh;padding:70px 6%}.section{padding:50px 6%}}'+
+ '</style></head><body><header class="nav"><a class="brand" href="#">'+d.name+'</a><nav class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#contact">Contact</a></nav></header><main><section class="hero"><div class="tag">INDEPENDENTLY MADE · YOUR STYLE</div><h1>'+d.headline+'</h1><p>'+d.description+'</p><a class="cta" href="#contact">'+d.button+' ↗</a></section>'+
+ (d.about?'<section class="section" id="about"><div class="tag">A LITTLE ABOUT</div><h2>Built around your ideas.</h2><p>Tell visitors what makes your work, brand or idea different. Replace this text with your own story.</p></section>':'')+
+ (d.work?'<section class="section" id="work"><div class="tag">SELECTED WORK</div><h2>Things in progress.</h2><div class="cards"><div class="card"><b>01 / PROJECT</b><p>Your first project description.</p></div><div class="card"><b>02 / PROJECT</b><p>Your second project description.</p></div><div class="card"><b>03 / PROJECT</b><p>Your third project description.</p></div></div></section>':'')+
+ (d.contact?'<section class="section" id="contact"><div class="tag">GET IN TOUCH</div><h2>Have an idea?</h2><p>Add your email or social links here to let people contact you.</p></section>':'')+
+ '</main><footer>© '+new Date().getFullYear()+' '+d.name+' · Made with care.</footer></body></html>';
+ }
+ function update(){const d=getData();frame.srcdoc=buildDocument(d);$('builderStatus').textContent='Preview updated · '+d.layout+' layout · '+d.accent.toUpperCase();}
+ ['builderName','builderHeadline','builderDescription','builderButton','builderAbout','builderWork','builderContact'].forEach(id=>$(id).addEventListener('input',update));
+ $('builderSwatches').querySelectorAll('.swatch').forEach(btn=>btn.addEventListener('click',()=>{accent=btn.dataset.color;$('builderColor').value=accent;$('builderSwatches').querySelectorAll('.swatch').forEach(b=>b.classList.toggle('active',b===btn));update()}));
+ $('builderColor').addEventListener('input',e=>{accent=e.target.value;$('builderSwatches').querySelectorAll('.swatch').forEach(b=>b.classList.remove('active'));update()});
+ document.querySelectorAll('.layout-choice').forEach(btn=>btn.addEventListener('click',()=>{layout=btn.dataset.layout;document.querySelectorAll('.layout-choice').forEach(b=>b.classList.toggle('active',b===btn));update()}));
+ $('builderGenerate').addEventListener('click',update);
+ $('builderDownload').addEventListener('click',()=>{const blob=new Blob([buildDocument(getData())],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='my-custom-website.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('builderStatus').textContent='Your standalone HTML website has been downloaded.';});
+ update();
+})();
