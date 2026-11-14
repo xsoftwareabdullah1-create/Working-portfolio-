@@ -31,7 +31,7 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
   crew.push({el,x:rand(0,innerWidth),y:rand(0,innerHeight),tx:rand(0,innerWidth),ty:rand(0,innerHeight),wait:rand(0,120),speed:rand(.006,.018),phase:rand(0,6.28),index:i});
  }
  function newTarget(a){
-  const targets=[...document.querySelectorAll('.hero h1,.hero-kicker,.hero-content>p,.hero-actions,.section-title h2,.tool-row,.project-card,.timeline-item,.ai-list a,.contact-inner h2')];
+  const targets=[...document.querySelectorAll('.hero h1,.hero-kicker,.hero-content>p,.hero-actions,.section-title h2,.tool-row,.project-card,.timeline-item,.ai-list a,.contact-inner h2,.generated-stage .agent-piece,.generated-stage .gen-card')];
   const target=targets[Math.floor(Math.random()*targets.length)];
   if(target){
    const r=target.getBoundingClientRect();
@@ -39,6 +39,7 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
   }else{a.tx=rand(10,innerWidth-20);a.ty=rand(10,innerHeight-20);a.focus=null;}
  }
  function reset(){
+  if(window.generateFreshUI)window.generateFreshUI();
   replaySeed++;completed=0;const status=document.getElementById('agentStatus');if(status)status.textContent='0 / 18 layers · Building';
   crew.forEach((a,i)=>{a.x=rand(0,innerWidth);a.y=rand(0,innerHeight);newTarget(a);a.wait=i*5;a.done=false;a.el.style.opacity='.95';});
   if(lastHighlight){lastHighlight.classList.remove('agent-highlight');lastHighlight=null;}
@@ -61,6 +62,7 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
   });
   requestAnimationFrame(tick);
  }
+ window.replayCursorBuild=reset;
  document.getElementById('buildReplay')?.addEventListener('click',reset);
  document.getElementById('agentAuto')?.addEventListener('click',e=>{auto=!auto;e.currentTarget.setAttribute('aria-pressed',String(auto));e.currentTarget.textContent=auto?'AUTO':'PAUSED';});
  document.getElementById('agentSpeed')?.addEventListener('click',e=>{slow=!slow;e.currentTarget.textContent=slow?'.5×':'1×';});
@@ -97,4 +99,32 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
  $('builderGenerate').addEventListener('click',update);
  $('builderDownload').addEventListener('click',()=>{const blob=new Blob([buildDocument(getData())],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='my-custom-website.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('builderStatus').textContent='Your standalone HTML website has been downloaded.';});
  update();
+})();
+
+/* Fresh UI generator: every replay builds a different live interface */
+(()=> {
+ const stage=document.getElementById('generatedStage');if(!stage)return;
+ const variants=[
+  {name:'EDITORIAL',layout:'editorial',accent:'#d7ff3f',brand:'FORM / 01',kicker:'INDEPENDENT CREATIVE STUDIO',title:'MAKE ROOM FOR\nBETTER IDEAS.',desc:'A bold editorial landing page with oversized type, a clear story and a direct call to action.',cards:[['01','STRATEGY'],['02','DESIGN SYSTEM'],['03','DEVELOPMENT']],stats:[['12+','PROJECTS'],['04','DISCIPLINES'],['∞','POSSIBILITIES']]},
+  {name:'NEON TECH',layout:'neon',accent:'#62f5d0',brand:'NEXUS.LAB',kicker:'NEXT GENERATION DIGITAL',title:'BUILD BEYOND\nTHE EXPECTED.',desc:'A futuristic product interface with luminous details, compact navigation and data-led cards.',cards:[['AI','INTELLIGENCE'],['XR','EXPERIENCES'],['API','CONNECTED']],stats:[['99.9%','UPTIME'],['24/7','SYSTEMS'],['01','MISSION']]},
+  {name:'BRUTALIST',layout:'brutal',accent:'#ff4c21',brand:'RAW OBJECTS®',kicker:'NO TEMPLATE. NO LIMITS.',title:'LOUD IDEAS.\nREAL IMPACT.',desc:'A high-contrast brutalist layout with sharp edges, oversized typography and punchy blocks.',cards:[['A','IDENTITY'],['B','DIGITAL'],['C','CULTURE']],stats:[['2026','EDITION'],['03','COLLECTIVES'],['100%','ORIGINAL']]},
+  {name:'SOFT PRODUCT',layout:'soft',accent:'#6255d9',brand:'morrow',kicker:'A CALMER WAY TO WORK',title:'LESS NOISE.\nMORE FLOW.',desc:'A soft product homepage with gentle surfaces, friendly spacing and clear feature cards.',cards:[['01','FOCUS MODE'],['02','SMART NOTES'],['03','YOUR SPACE']],stats:[['2 min','TO START'],['1 place','FOR IDEAS'],['∞','ROOM TO GROW']]},
+  {name:'SPLIT PORTFOLIO',layout:'split',accent:'#ff9d5c',brand:'STUDIO / ABD',kicker:'DESIGN ENGINEER · AVAILABLE FOR IDEAS',title:'THOUGHTFUL\nBY DESIGN.',desc:'A portfolio concept pairing a strong introduction with a visual identity mark and selected work.',cards:[['01','SELECTED WORK'],['02','PROCESS'],['03','CONTACT']],stats:[['DESIGN','THINKING'],['CODE','CRAFT'],['BUILD','SHIP']]},
+  {name:'GRID SYSTEM',layout:'cards',accent:'#8da7ff',brand:'GRIDWORK',kicker:'SYSTEMS FOR WHAT IS NEXT',title:'EVERYTHING\nIN ITS PLACE.',desc:'A modular grid-based studio site that turns capabilities into a crisp, scannable interface.',cards:[['01','WEB SYSTEMS'],['02','MOBILE APPS'],['03','INTERACTIVE'],['04','TOOLS'],['05','PROTOTYPES'],['06','EXPERIMENTS']],stats:[['06','MODULES'],['03','PLATFORMS'],['01','WORKFLOW']]}
+ ];
+ let previous=-1,current=0;
+ const escapeHTML=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ function generate(){
+  let next=Math.floor(Math.random()*variants.length);if(variants.length>1)while(next===previous)next=Math.floor(Math.random()*variants.length);previous=current;current=next;
+  const v=variants[current];stage.dataset.layout=v.layout;stage.style.setProperty('--stage-accent',v.accent);
+  const cards=v.cards.map(([n,label])=>'<div class="gen-card agent-piece"><b>'+escapeHTML(n)+'</b><span>'+escapeHTML(label)+'</span></div>').join('');
+  const hero='<div class="gen-hero agent-piece"><div class="gen-hero-copy"><div class="gen-kicker">'+escapeHTML(v.kicker)+'</div><h3 class="gen-title">'+escapeHTML(v.title).replace(/\n/g,'<br>')+'</h3><p class="gen-desc">'+escapeHTML(v.desc)+'</p><a class="gen-cta" href="#contact">EXPLORE THE CONCEPT ↗</a></div>'+(v.layout==='split'?'<div class="gen-visual agent-piece"><div class="gen-orb">IDEAS<br>IN MOTION</div></div>':'')+'</div>';
+  stage.innerHTML='<div class="gen-top agent-piece"><span class="gen-logo">'+escapeHTML(v.brand)+'</span><nav class="gen-links"><span>ABOUT</span><span>WORK</span><span>STUDIO</span><span>CONTACT ↗</span></nav></div>'+hero+'<div class="gen-grid">'+cards+'</div><div class="gen-stats agent-piece">'+v.stats.map(([n,l])=>'<div><b>'+escapeHTML(n)+'</b><small>'+escapeHTML(l)+'</small></div>').join('')+'</div>';
+  const tag=document.getElementById('labVariant');if(tag)tag.textContent='CONCEPT 0'+(current+1)+' / '+v.name;
+  const desc=document.getElementById('labDescription');if(desc)desc.textContent='Generated layout: '+v.name+' · palette '+v.accent+' · tap GENERATE ANOTHER UI for a new design.';
+  document.querySelectorAll('.cursor-agent').forEach((el,i)=>{const label=el.querySelector('.agent-label');if(label)label.textContent=['brand','layout','type','color','grid','cards','spacing','motion','copy','visual','detail','contrast','navigation','shape','finish','texture','flow','review'][i]||'design'});
+ }
+ document.getElementById('generateUI')?.addEventListener('click',()=>{generate();if(window.replayCursorBuild)window.replayCursorBuild()});
+ window.generateFreshUI=generate;
+ generate();
 })();
