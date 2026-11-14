@@ -1,38 +1,36 @@
 # Abdullah — Developer Portfolio
 
-A responsive, single-file developer portfolio built with HTML, CSS and vanilla JavaScript.
+A responsive portfolio inspired by a minimal, experimental creative-developer aesthetic: near-black canvas, oversized condensed typography, yellow highlights, playful floating labels and carefully spaced sections.
 
-## Features
+## Experience
 
-- Cinematic dark interface with green neon accents
-- Smooth custom cursor with a trailing ring on desktop
-- Lightweight animated particle network in the hero section
-- Responsive navigation and mobile menu
-- Scroll reveal effects and active section navigation
-- Programming language and technology grid
-- AI Master section linking to ChatGPT, Groq, Gemini, Google AI Studio, Claude, DeepSeek and Claude Code
-- Project showcase, developer journey and contact section
-- Reduced-motion support and mobile-friendly layout
+- Particle-built heart hero with subtle motion
+- Floating pointer labels and custom smooth cursor on desktop
+- High-contrast typography and yellow outlined / filled animated links
+- Responsive software language, build-tool and creative-tool rows
+- About section with a simple learning timeline
+- Minimal project cards with CSS-built illustrations
+- AI Master directory linking to ChatGPT, Groq, Gemini, Google AI Studio, Claude, DeepSeek and Claude Code
+- Mobile navigation, scroll reveals and reduced-motion support
+
+## Files
+
+- `index.html` — semantic page structure
+- `style.css` — responsive visual system and animations
+- `script.js` — language chips, cursor, scroll effects and particle heart
 
 ## Run locally
 
-Open `index.html` in a modern browser. No build tools, package manager or framework are required.
+Open `index.html` in a modern browser. No build tools or package manager are required.
 
-## Publish with GitHub Pages
+## Publish
 
-1. Open the repository's **Settings → Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select the `main` branch and `/(root)` folder, then save.
-4. Wait for GitHub Pages to publish the site.
+The GitHub Actions workflow in `.github/workflows/pages.yml` deploys the root website to GitHub Pages when Pages is enabled for the repository and the account/repository plan supports it. For a private repository on GitHub Free, publish from a public repository or use a hosting plan that supports private-repository Pages.
 
 ## Personalise
 
-- Update the project descriptions in `index.html` to match shipped projects.
-- Replace the contact destination with your preferred public email or contact link.
-- Add real project repository/demo URLs when available.
+Update the copy and project descriptions in `index.html`. Replace the GitHub contact link with an email or contact form when desired. Add verified live demo/repository URLs to the project cards as they become available.
 
-## Note
+## Accuracy note
 
-The AI Master cards are outbound links to the platforms' official websites. They do not embed those services or imply an official partnership. The portfolio describes technologies of interest, not verified certifications or proficiency levels.
-
-Built with curiosity by Abdullah.
+Project cards describe project concepts and ongoing experiments, not claims that every item is a completed public release. AI cards are outbound links to official services and do not imply endorsement, affiliation or certification.
