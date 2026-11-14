@@ -124,7 +124,7 @@ resizeHeart();drawHeart();addEventListener('resize',resizeHeart);
   const desc=document.getElementById('labDescription');if(desc)desc.textContent='Generated layout: '+v.name+' · palette '+v.accent+' · tap GENERATE ANOTHER UI for a new design.';
   document.querySelectorAll('.cursor-agent').forEach((el,i)=>{const label=el.querySelector('.agent-label');if(label)label.textContent=['brand','layout','type','color','grid','cards','spacing','motion','copy','visual','detail','contrast','navigation','shape','finish','texture','flow','review'][i]||'design'});
  }
- document.getElementById('generateUI')?.addEventListener('click',()=>{generate();if(window.replayCursorBuild)window.replayCursorBuild()});
+ document.getElementById('generateUI')?.addEventListener('click',()=>{if(window.replayCursorBuild)window.replayCursorBuild();else generate()});
  window.generateFreshUI=generate;
  generate();
 })();
