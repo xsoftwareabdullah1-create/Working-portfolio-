@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
-<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks"><a href="#build">WHAT I BUILD WITH</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></header>
+<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks"><a href="#build">WHAT I BUILD WITH</a><a href="#web-builder">WEB BUILDER</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></header>
 <main>
 <section class="hero" id="home">
 <canvas id="heartCanvas" aria-hidden="true"></canvas><div class="hero-noise"></div>
@@ -53,7 +53,27 @@
 <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener"><b>07</b><strong>Claude Code</strong><small>Agentic coding workflow</small><span>↗</span></a>
 </div><p class="fine-print">These are links to official platforms I explore. This portfolio does not imply affiliation, certification or endorsement.</p>
 </div></section>
-<section class="section contact-section" id="contact"><div class="wrap contact-inner"><div class="eyebrow">05 / YOUR IDEA STARTS HERE</div><h2>LET'S MAKE<br><span>IT REAL.</span></h2><p>Have an interesting idea or want to build something together? Let's connect.</p><a class="yellow-btn" href="https://github.com/xsoftwareabdullah1-create" target="_blank" rel="noopener">FIND ME ON GITHUB ↗</a></div></section>
+
+<section class="section builder-section" id="web-builder">
+ <div class="wrap">
+  <div class="section-title"><div><div class="eyebrow">06 / INTERACTIVE WORKBENCH</div><h2>BUILD A WEBSITE<br><span>YOUR WAY.</span></h2></div><p>Customize your own mini website. Change the text, colors and layout, preview it live, then export a standalone HTML file.</p></div>
+  <div class="builder-shell">
+   <div class="builder-controls">
+    <div class="builder-heading"><span>01 / CUSTOMIZE</span><b>YOUR WEBSITE</b></div>
+    <label>Website name<input id="builderName" maxlength="40" value="My Next Big Idea" placeholder="Your brand name"></label>
+    <label>Main headline<input id="builderHeadline" maxlength="70" value="MAKE SOMETHING AMAZING" placeholder="Your headline"></label>
+    <label>Short description<textarea id="builderDescription" maxlength="180" rows="3">A little corner of the internet, built exactly the way I want it.</textarea></label>
+    <label>Button text<input id="builderButton" maxlength="24" value="LET'S GO" placeholder="Button label"></label>
+    <div class="builder-field"><span>Accent color</span><div class="swatches" id="builderSwatches"><button type="button" data-color="#d7ff3f" class="swatch active" aria-label="Lime"></button><button type="button" data-color="#7c8cff" class="swatch" aria-label="Blue"></button><button type="button" data-color="#ff8c61" class="swatch" aria-label="Orange"></button><button type="button" data-color="#ff69b4" class="swatch" aria-label="Pink"></button><button type="button" data-color="#f4ed22" class="swatch" aria-label="Yellow"></button><input type="color" id="builderColor" value="#d7ff3f" aria-label="Custom accent color"></div></div>
+    <div class="builder-field"><span>Layout style</span><div class="layout-options"><button type="button" class="layout-choice active" data-layout="center">CENTERED</button><button type="button" class="layout-choice" data-layout="split">SPLIT</button></div></div>
+    <div class="builder-field"><span>Include sections</span><div class="builder-checks"><label><input type="checkbox" id="builderAbout" checked> ABOUT</label><label><input type="checkbox" id="builderWork" checked> WORK</label><label><input type="checkbox" id="builderContact" checked> CONTACT</label></div></div>
+    <div class="builder-actions"><button type="button" class="yellow-btn" id="builderGenerate">UPDATE PREVIEW ↗</button><button type="button" class="line-btn" id="builderDownload">DOWNLOAD HTML ↓</button></div>
+    <p class="builder-status" id="builderStatus" aria-live="polite">Your preview updates as you customize.</p>
+   </div>
+   <div class="builder-preview-wrap"><div class="preview-top"><span><i></i><i></i><i></i></span><b>LIVE PREVIEW</b><small>LOCAL · INSTANT</small></div><iframe id="builderPreview" title="Your custom website live preview" sandbox="allow-scripts"></iframe></div>
+  </div>
+ </div>
+</section>\n<section class="section contact-section" id="contact"><div class="wrap contact-inner"><div class="eyebrow">05 / YOUR IDEA STARTS HERE</div><h2>LET'S MAKE<br><span>IT REAL.</span></h2><p>Have an interesting idea or want to build something together? Let's connect.</p><a class="yellow-btn" href="https://github.com/xsoftwareabdullah1-create" target="_blank" rel="noopener">FIND ME ON GITHUB ↗</a></div></section>
 </main>
 <footer><span>© <span id="year"></span> ABDULLAH</span><span>BUILT WITH CURIOSITY <b>✳</b></span><a href="#home">BACK TO TOP ↑</a></footer>
 <script src="script.js?v=4" defer></script>
