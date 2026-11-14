@@ -7,16 +7,16 @@
 <title>Abdullah — Got Something to Build?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
-<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks"><a href="#build">WHAT I BUILD WITH</a><a href="#web-builder">WEB BUILDER</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></header>
+<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks"><a href="#build">WHAT I BUILD WITH</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></header>
 <main>
 <section class="hero" id="home">
 <canvas id="heartCanvas" aria-hidden="true"></canvas><div class="hero-noise"></div>
 <div class="float-label l1">ideas</div><div class="float-label l2">build</div><div class="float-label l3">curiosity</div><div class="float-label l4">pixels</div><div class="float-label l5">code</div>
-<button class="build-replay" id="buildReplay" type="button">↻ REPLAY THE BUILD</button><div class="build-caption">THIS PAGE WAS ASSEMBLED LIVE BY 15 CURSORS. PRESS R TO WATCH IT AGAIN. A FOR A SLOW SLIDE.</div><div class="hero-content"><div class="hero-kicker"><span class="live-dot"></span> INDEPENDENT DEVELOPER · INDIA</div>
+<div class="build-caption">THIS PAGE IS BEING BUILT LIVE BY 18 CURSORS. PRESS SPACE OR R TO REPLAY. A FOR SLOW GLIDE.</div><div class="hero-content"><div class="hero-kicker"><span class="live-dot"></span> INDEPENDENT DEVELOPER · INDIA</div>
 <h1>GOT SOMETHING<br>TO <span>BUILD?</span></h1>
 <p>I’m Abdullah — I explore software, Android, games and AI, then turn ideas into working experiments.</p>
 <div class="hero-actions"><a class="yellow-btn" href="#projects">EXPLORE MY BUILDS <span>↗</span></a><a class="line-btn" href="#journey">GET TO KNOW ME ↓</a></div>
@@ -54,27 +54,10 @@
 </div><p class="fine-print">These are links to official platforms I explore. This portfolio does not imply affiliation, certification or endorsement.</p>
 </div></section>
 
-<section class="section builder-section" id="web-builder">
- <div class="wrap">
-  <div class="section-title"><div><div class="eyebrow">06 / INTERACTIVE WORKBENCH</div><h2>BUILD A WEBSITE<br><span>YOUR WAY.</span></h2></div><p>Customize your own mini website. Change the text, colors and layout, preview it live, then export a standalone HTML file.</p></div>
-  <div class="builder-shell">
-   <div class="builder-controls">
-    <div class="builder-heading"><span>01 / CUSTOMIZE</span><b>YOUR WEBSITE</b></div>
-    <label>Website name<input id="builderName" maxlength="40" value="My Next Big Idea" placeholder="Your brand name"></label>
-    <label>Main headline<input id="builderHeadline" maxlength="70" value="MAKE SOMETHING AMAZING" placeholder="Your headline"></label>
-    <label>Short description<textarea id="builderDescription" maxlength="180" rows="3">A little corner of the internet, built exactly the way I want it.</textarea></label>
-    <label>Button text<input id="builderButton" maxlength="24" value="LET'S GO" placeholder="Button label"></label>
-    <div class="builder-field"><span>Accent color</span><div class="swatches" id="builderSwatches"><button type="button" data-color="#d7ff3f" class="swatch active" aria-label="Lime"></button><button type="button" data-color="#7c8cff" class="swatch" aria-label="Blue"></button><button type="button" data-color="#ff8c61" class="swatch" aria-label="Orange"></button><button type="button" data-color="#ff69b4" class="swatch" aria-label="Pink"></button><button type="button" data-color="#f4ed22" class="swatch" aria-label="Yellow"></button><input type="color" id="builderColor" value="#d7ff3f" aria-label="Custom accent color"></div></div>
-    <div class="builder-field"><span>Layout style</span><div class="layout-options"><button type="button" class="layout-choice active" data-layout="center">CENTERED</button><button type="button" class="layout-choice" data-layout="split">SPLIT</button></div></div>
-    <div class="builder-field"><span>Include sections</span><div class="builder-checks"><label><input type="checkbox" id="builderAbout" checked> ABOUT</label><label><input type="checkbox" id="builderWork" checked> WORK</label><label><input type="checkbox" id="builderContact" checked> CONTACT</label></div></div>
-    <div class="builder-actions"><button type="button" class="yellow-btn" id="builderGenerate">UPDATE PREVIEW ↗</button><button type="button" class="line-btn" id="builderDownload">DOWNLOAD HTML ↓</button></div>
-    <p class="builder-status" id="builderStatus" aria-live="polite">Your preview updates as you customize.</p>
-   </div>
-   <div class="builder-preview-wrap"><div class="preview-top"><span><i></i><i></i><i></i></span><b>LIVE PREVIEW</b><small>LOCAL · INSTANT</small></div><iframe id="builderPreview" title="Your custom website live preview" sandbox="allow-scripts"></iframe></div>
-  </div>
- </div>
-</section>\n<section class="section contact-section" id="contact"><div class="wrap contact-inner"><div class="eyebrow">05 / YOUR IDEA STARTS HERE</div><h2>LET'S MAKE<br><span>IT REAL.</span></h2><p>Have an interesting idea or want to build something together? Let's connect.</p><a class="yellow-btn" href="https://github.com/xsoftwareabdullah1-create" target="_blank" rel="noopener">FIND ME ON GITHUB ↗</a></div></section>
+
+<section class="section contact-section" id="contact"><div class="wrap contact-inner"><div class="eyebrow">05 / YOUR IDEA STARTS HERE</div><h2>LET'S MAKE<br><span>IT REAL.</span></h2><p>Have an interesting idea or want to build something together? Let's connect.</p><a class="yellow-btn" href="https://github.com/xsoftwareabdullah1-create" target="_blank" rel="noopener">FIND ME ON GITHUB ↗</a></div></section>
 </main>
+<div class="agent-dock" id="agentDock"><div class="agent-dock-copy"><b>18 AGENTS</b><span id="agentStatus">0 / 18 layers · Ready</span></div><button type="button" id="buildReplay">REPLAY ↻</button><button type="button" id="agentAuto" aria-pressed="true">AUTO</button><button type="button" id="agentSpeed">1×</button></div>
 <footer><span>© <span id="year"></span> ABDULLAH</span><span>BUILT WITH CURIOSITY <b>✳</b></span><a href="#home">BACK TO TOP ↑</a></footer>
-<script src="script.js?v=4" defer></script>
+<script src="script.js?v=5" defer></script>
 </body></html>
