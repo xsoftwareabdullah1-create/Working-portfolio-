@@ -21,4 +21,10 @@
 .cursor-agent.is-selecting svg{transform:scale(1.12)}
 .agent-highlight{outline:1px solid var(--agent-color)!important;outline-offset:3px!important;box-shadow:0 0 0 1px #000,0 0 18px color-mix(in srgb,var(--agent-color) 35%,transparent)!important;transition:outline-color .2s,box-shadow .2s}
 @media(max-width:620px){.build-replay{left:10px;bottom:10px;padding:9px 10px;font-size:8px}.build-caption{bottom:44px;font-size:7px;line-height:1.6}.cursor-agent svg{width:13px;height:17px}.cursor-agent .agent-label{font-size:7px;padding:2px 4px}}
-@media(prefers-reduced-motion:reduce){.cursor-agent{display:none}.build-replay{display:none}}
+@media(prefers-reduced-motion:reduce){.cursor-agent{display:block!important;animation:none!important}.build-replay{display:block!important}}
+
+/* Force the cursor showcase to remain visible on touch devices and reduced-motion settings */
+.cursor-agent{display:block!important;visibility:visible!important;opacity:1!important;z-index:2147483000!important;position:fixed!important;pointer-events:none!important}
+.cursor-agent svg{width:22px!important;height:28px!important}
+.cursor-agent .agent-label{display:block!important;visibility:visible!important;background:var(--agent-color)!important;color:#050505!important;font-weight:700!important}
+.build-replay{z-index:2147483001!important;display:block!important;visibility:visible!important}
