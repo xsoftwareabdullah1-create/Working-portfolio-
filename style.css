@@ -58,3 +58,15 @@
 #builderPreview{display:block;width:100%;height:560px;border:0;background:#101010}
 @media(max-width:800px){.builder-shell{grid-template-columns:1fr}.builder-controls{border-right:0;border-bottom:1px solid #333;padding:19px}#builderPreview{height:480px}.builder-actions>*{flex:1;justify-content:center}}
 @media(max-width:620px){.builder-section{padding:80px 0}.builder-heading{font-size:9px}.builder-actions .yellow-btn,.builder-actions .line-btn{padding:12px 10px;font-size:8px}.preview-top{height:38px}}
+
+/* Reference-style live cursor build control dock */
+.build-caption{bottom:94px!important}
+.agent-dock{position:fixed;z-index:2147483002;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:9px 11px;background:rgba(8,8,8,.94);border:1px solid #555;box-shadow:0 10px 40px #000b;backdrop-filter:blur(12px);font:9px var(--mono);white-space:nowrap}
+.agent-dock-copy{display:flex;flex-direction:column;gap:4px;padding:0 12px 0 2px;border-right:1px solid #444}
+.agent-dock-copy b{color:var(--yellow);letter-spacing:.12em}
+.agent-dock-copy span{color:#aaa;font-size:8px}
+.agent-dock button{border:1px solid #777;background:transparent;color:#eee;padding:9px 11px;font:9px var(--mono);cursor:pointer;transition:.2s}
+.agent-dock button:hover,.agent-dock button:focus-visible{border-color:var(--yellow);color:var(--yellow);transform:translateY(-2px);outline:none}
+.agent-dock button[aria-pressed=true]{border-color:var(--yellow);color:var(--yellow)}
+.build-replay{display:none!important}
+@media(max-width:620px){.agent-dock{width:calc(100% - 20px);bottom:8px;justify-content:space-between;gap:5px;padding:7px}.agent-dock-copy{padding-right:6px}.agent-dock button{padding:8px 9px;font-size:8px}.build-caption{bottom:72px!important;max-width:94%;font-size:7px}}
