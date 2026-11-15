@@ -7,23 +7,24 @@
 <title>Abdullah — Got Something to Build?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
+<a class="skip-link" href="#mainContent">SKIP TO CONTENT</a>
 <div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
-<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks"><a href="#liveLab">LIVE UI LAB</a><a href="#build">WHAT I BUILD WITH</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button></header>
-<main>
+<header class="nav"><a class="brand" href="#home">ABDULLAH<span>®</span></a><nav id="navLinks" aria-label="Main navigation"><a href="#liveLab">LIVE UI LAB</a><a href="#build">WHAT I BUILD WITH</a><a href="#projects">PROJECTS</a><a href="#journey">ABOUT</a><a href="#ai">AI MASTER</a></nav><a class="nav-contact" href="#contact">LET'S TALK ↗</a><button class="menu" id="menuBtn" type="button" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">☰</button></header>
+<main id="mainContent">
 <section class="hero" id="home">
 <canvas id="heartCanvas" aria-hidden="true"></canvas><div class="hero-noise"></div>
 <div class="float-label l1">ideas</div><div class="float-label l2">build</div><div class="float-label l3">curiosity</div><div class="float-label l4">pixels</div><div class="float-label l5">code</div>
-<div class="build-caption">THIS PAGE IS BEING BUILT LIVE BY 18 CURSORS. PRESS SPACE OR R TO REPLAY. A FOR SLOW GLIDE.</div><div class="hero-content"><div class="hero-kicker"><span class="live-dot"></span> INDEPENDENT DEVELOPER · INDIA</div>
+<div class="build-caption">VISUAL BUILD SEQUENCE · 18 ANIMATED CURSORS · PRESS SPACE OR R TO REPLAY · A FOR SLOW GLIDE.</div><div class="hero-content"><div class="hero-kicker"><span class="live-dot"></span> INDEPENDENT DEVELOPER · INDIA</div>
 <h1>GOT SOMETHING<br>TO <span>BUILD?</span></h1>
 <p>I’m Abdullah — I explore software, Android, games and AI, then turn ideas into working experiments.</p>
 <div class="hero-actions"><a class="yellow-btn" href="#projects">EXPLORE MY BUILDS <span>↗</span></a><a class="line-btn" href="#journey">GET TO KNOW ME ↓</a></div>
 <div class="hero-foot">SCROLL TO EXPLORE <span>✳</span> MADE WITH CURIOSITY</div></div>
 <div class="scroll-mark">↓</div>
 </section>
-<section class="section live-lab" id="liveLab"><div class="wrap"><div class="section-title"><div><div class="eyebrow">LIVE CREATIVE ENGINE / 18 AGENTS</div><h2>WATCH A NEW<br><span>UI COME ALIVE.</span></h2></div><p>Each replay generates a fresh interface concept. The cursor crew moves through the layout while the design changes.</p></div><div class="lab-toolbar"><span><i class="live-dot"></i> LIVE DESIGN CANVAS</span><span id="labVariant">CONCEPT 01 / EDITORIAL</span><button id="generateUI" type="button">GENERATE ANOTHER UI ↻</button></div><div class="generated-stage" id="generatedStage" aria-live="polite"></div><div class="lab-foot"><span id="labDescription">A new layout is assembled by the cursor crew.</span><span>18 CURSORS · RANDOMIZED LAYOUTS</span></div></div></section>
+<section class="section live-lab" id="liveLab"><div class="wrap"><div class="section-title"><div><div class="eyebrow">LIVE CREATIVE ENGINE / 18 CURSORS</div><h2>WATCH A NEW<br><span>UI COME ALIVE.</span></h2></div><p>Each replay generates a fresh interface concept. The cursor crew moves through the layout while the design changes.</p></div><div class="lab-toolbar"><span><i class="live-dot"></i> LIVE DESIGN CANVAS</span><span id="labVariant">CONCEPT 01 / EDITORIAL</span><button id="generateUI" type="button">GENERATE ANOTHER UI ↻</button></div><div class="generated-stage" id="generatedStage" aria-live="polite"></div><div class="lab-foot"><span id="labDescription">A new layout is assembled by the cursor crew.</span><span>18 CURSORS · RANDOMIZED LAYOUTS</span></div></div></section>
 <section class="section build-section" id="build"><div class="wrap">
 <div class="section-title"><div><div class="eyebrow">01 / THE TOOLBOX</div><h2>WHAT I BUILD WITH</h2></div><p>A growing toolkit. I learn by experimenting, combining tools and building real projects.</p></div>
 <div class="tool-rows">
@@ -60,5 +61,5 @@
 </main>
 <div class="agent-dock" id="agentDock"><div class="agent-dock-copy"><b>18 AGENTS</b><span id="agentStatus">0 / 18 layers · Ready</span></div><button type="button" id="buildReplay">REPLAY ↻</button><button type="button" id="agentAuto" aria-pressed="true">AUTO</button><button type="button" id="agentSpeed">1×</button></div>
 <footer><span>© <span id="year"></span> ABDULLAH</span><span>BUILT WITH CURIOSITY <b>✳</b></span><a href="#home">BACK TO TOP ↑</a></footer>
-<script src="script.js?v=7" defer></script>
+<script src="script.js?v=8" defer></script>
 </body></html>

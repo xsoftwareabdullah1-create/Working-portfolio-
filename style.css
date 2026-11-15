@@ -116,3 +116,21 @@
 .lab-foot{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;color:#777;font:8px var(--mono);letter-spacing:.08em}
 .generated-stage .agent-highlight{outline-color:var(--agent-color)!important}
 @media(max-width:620px){.lab-toolbar{flex-wrap:wrap;font-size:8px}.lab-toolbar button{width:100%}.generated-stage{min-height:420px;padding:17px}.gen-links{gap:8px;font-size:7px}.gen-title{font-size:44px}.gen-grid,.generated-stage[data-layout="cards"] .gen-grid{grid-template-columns:1fr 1fr}.generated-stage[data-layout="split"] .gen-hero{grid-template-columns:1fr}.generated-stage[data-layout="split"] .gen-visual{min-height:135px}.gen-orb{width:90px;height:90px}.gen-stats{gap:18px}.gen-stats b{font-size:22px}.lab-foot{font-size:7px;flex-direction:column}}
+
+/* Accessibility and compact mobile cursor controls */
+.skip-link{position:fixed;z-index:2147483005;top:10px;left:10px;padding:11px 14px;background:var(--yellow);color:#050505;font:10px var(--mono);transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0);outline:2px solid #fff;outline-offset:3px}
+.menu:focus-visible,.agent-dock button:focus-visible,.lab-toolbar button:focus-visible,a:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}
+@media(max-width:620px){
+ .cursor-agent svg{width:13px;height:18px}
+ .cursor-agent .agent-label{left:10px;top:10px;padding:2px 4px;font-size:7px}
+ .agent-dock{max-width:calc(100vw - 12px);gap:4px;padding:7px 6px}
+ .agent-dock-copy{padding-right:6px}
+ .agent-dock-copy b{font-size:8px}
+ .agent-dock-copy span{font-size:7px}
+ .agent-dock button{padding:8px 7px;font-size:8px}
+ .build-caption{bottom:104px!important;font-size:7px}
+ .generated-stage{min-height:390px;padding:17px}
+ .gen-links{gap:8px;font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){.cursor-agent{display:none!important}#heartCanvas{opacity:.35}}
