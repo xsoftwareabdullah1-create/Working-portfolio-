@@ -1,36 +1,50 @@
 # Abdullah — Developer Portfolio
 
-A responsive portfolio inspired by a minimal, experimental creative-developer aesthetic: near-black canvas, oversized condensed typography, yellow highlights, playful floating labels and carefully spaced sections.
+A responsive, experimental developer portfolio for Abdullah. The visual direction is intentionally spacious and high-contrast: a pure-black canvas, dotted texture, condensed white typography, yellow accents, outlined technology tags and restrained motion.
 
 ## Experience
 
-- Particle-built heart hero with subtle motion
-- Floating pointer labels and custom smooth cursor on desktop
-- High-contrast typography and yellow outlined / filled animated links
-- Responsive software language, build-tool and creative-tool rows
-- About section with a simple learning timeline
-- Minimal project cards with CSS-built illustrations
-- AI Master directory linking to ChatGPT, Groq, Gemini, Google AI Studio, Claude, DeepSeek and Claude Code
-- Mobile navigation, scroll reveals and reduced-motion support
+- Particle-built heart hero with a reduced-motion fallback
+- Animated floating labels and a smooth desktop pointer
+- A visual 18-cursor choreography with labels, replay, auto/pause and speed controls
+- Live UI Lab that generates alternate interface concepts on demand
+- Responsive “WHAT I BUILD WITH” toolbox and “HOW I GOT HERE” timeline
+- Project cards for JARVIS, Train Simulator, TradeSphere and Minimal Invoice
+- AI tools directory with official outbound links
+- Keyboard-accessible mobile navigation and focus styles
+
+## Important accuracy note
+
+The 18 cursors are a **front-end visual simulation**. They do not represent real AI agents, remote collaborators or software agents editing the source code. The Live UI Lab generates pre-authored interface concepts in the browser; it is not an autonomous website-building service.
+
+Project cards describe experiments and work in progress, not claims that every project is a finished public release.
 
 ## Files
 
-- `index.html` — semantic page structure
-- `style.css` — responsive visual system and animations
-- `script.js` — language chips, cursor, scroll effects and particle heart
+- `index.html` — semantic page structure and content
+- `style.css` — responsive design system, effects and mobile layouts
+- `script.js` — cursor choreography, heart particles, navigation and UI concept generator
+- `scripts/validate-site.mjs` — dependency-free content, link and responsive-feature checks
+- `.github/workflows/ci.yml` — pull-request and branch validation
+- `.github/workflows/pages.yml` — GitHub Pages deployment from `main`
 
-## Run locally
+## Validate locally
 
-Open `index.html` in a modern browser. No build tools or package manager are required.
+Requires Node.js 20 or newer:
 
-## Publish
+```sh
+node --check script.js
+node scripts/validate-site.mjs
+```
 
-The GitHub Actions workflow in `.github/workflows/pages.yml` deploys the root website to GitHub Pages when Pages is enabled for the repository and the account/repository plan supports it. For a private repository on GitHub Free, publish from a public repository or use a hosting plan that supports private-repository Pages.
+No package manager or third-party runtime dependency is needed.
+
+## Public website
+
+[https://xsoftwareabdullah1-create.github.io/Working-portfolio-/](https://xsoftwareabdullah1-create.github.io/Working-portfolio-/)
+
+The repository is public. GitHub Pages deploys the root site from `main` when the Pages workflow runs successfully.
 
 ## Personalise
 
-Update the copy and project descriptions in `index.html`. Replace the GitHub contact link with an email or contact form when desired. Add verified live demo/repository URLs to the project cards as they become available.
-
-## Accuracy note
-
-Project cards describe project concepts and ongoing experiments, not claims that every item is a completed public release. AI cards are outbound links to official services and do not imply endorsement, affiliation or certification.
+Edit the text and project descriptions in `index.html`. Add verified project demo/repository URLs as they become available. Replace the GitHub contact link with a preferred contact method when ready.
